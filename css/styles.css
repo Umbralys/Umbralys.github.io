@@ -153,6 +153,19 @@ header {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
+    display: block;
+}
+
+.logo img {
+    height: 50px; /* Optimal size for desktop */
+    width: auto; /* Maintains aspect ratio */
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .logo img {
+        height: 40px; /* Slightly smaller for mobile */
+    }
 }
 
 .nav-links {
