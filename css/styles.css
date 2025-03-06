@@ -695,11 +695,14 @@ footer {
 
 .info-item {
     padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Add this to create spacing between elements */
 }
 
 .info-item h4 {
     color: var(--primary-color);
-    margin-bottom: 8px;
+    margin-bottom: 12px; /* Increased from 8px to 12px */
     font-size: 1rem;
     font-weight: 600;
 }
@@ -995,6 +998,19 @@ footer {
     padding: 12px 30px;
 }
 
+/* Contact form width adjustment for desktop */
+@media screen and (min-width: 969px) {
+    .contact-form-container {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+    
+    /* If you want the entire contact grid to be centered instead */
+    .contact-grid {
+        justify-content: center;
+        gap: 80px; /* Increased gap for better spacing */
+    }
+}
 /* Hover animation for inputs */
 .form-group input:hover,
 .form-group textarea:hover {
