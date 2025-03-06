@@ -747,24 +747,6 @@ footer {
     animation: focusAnimation 0.3s forwards;
 }
 
-/* Mobile optimization for contact form */
-@media screen and (max-width: 768px) {
-    .contact-form-container {
-        padding: 25px 20px;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 10px 12px;
-        font-size: 0.95rem;
-    }
-    
-    .contact-form .btn {
-        width: 100%;
-        justify-self: center;
-    }
-}
-
 /* Style the contact info section to match */
 .contact-info {
     background-color: #111;
@@ -810,23 +792,6 @@ footer {
     font-size: 1.1rem;
 }
 
-/* Hover animation for inputs */
-.form-group input:hover,
-.form-group textarea:hover {
-    border-color: #444;
-}
-
-/* Focus animation */
-@keyframes focusAnimation {
-    0% { box-shadow: 0 0 0 0px rgba(0, 102, 204, 0); }
-    100% { box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15); }
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    animation: focusAnimation 0.3s forwards;
-}
-
 /* Mobile optimization for contact form */
 @media screen and (max-width: 768px) {
     .contact-form-container {
@@ -845,50 +810,6 @@ footer {
     }
 }
 
-/* Style the contact info section to match */
-.contact-info {
-    background-color: #111;
-    border-radius: var(--border-radius);
-    padding: 30px;
-    box-shadow: var(--box-shadow);
-}
-
-.info-list {
-    margin: 30px 0;
-}
-
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 25px;
-}
-
-.info-icon {
-    background-color: rgba(0, 102, 204, 0.1);
-    color: var(--primary-color);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    font-size: 1.2rem;
-}
-
-.info-details h3 {
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.info-details p {
-    color: var(--text-light);
-}
-
-.contact-info .social-links h3 {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}}
 /* Responsive */
 @media screen and (max-width: 968px) {
     .nav-links {
