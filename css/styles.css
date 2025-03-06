@@ -1004,12 +1004,6 @@ footer {
         max-width: 50%;
         margin: 0 auto;
     }
-    
-    /* If you want the entire contact grid to be centered instead */
-    .contact-grid {
-        justify-content: center;
-        gap: 80px; /* Increased gap for better spacing */
-    }
 }
 /* Hover animation for inputs */
 .form-group input:hover,
