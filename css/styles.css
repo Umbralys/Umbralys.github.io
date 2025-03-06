@@ -616,9 +616,7 @@ footer {
 
 /* Contact Page Header */
 .contact-header {
-    background-image: url('https://umbralys.github.io/img/contact-bg.png')
-    background-size: cover;
-    background-position: center;
+    background-image: url('https://umbralys.github.io/img/contact-bg.png') !important;
     background-repeat: no-repeat;
     padding: 150px 0 80px;
     text-align: center;
