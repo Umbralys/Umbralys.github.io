@@ -602,18 +602,93 @@ footer {
     }
 }
 
-/* About Page */
-.about-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 20px;
+/* About Page Header */
+.about-header {
+    background-image: url('https://umbralys.github.io/img/about-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 150px 0 80px;
+    text-align: center;
+    position: relative;
+}
+/* Add an overlay to ensure text readability */
+.about-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+    z-index: 1;
+}
+.about-header .container {
+    position: relative;
+    z-index: 2; /* Place content above the overlay */
+}
+.about-header h1 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 3rem;
+}
+.about-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+}
+/* About Content Styling */
+.about-content {
+    padding: 20px 0;
 }
 
+.about-content h2 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.about-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Add some space between paragraphs for better readability */
+.about-content p + p {
+    margin-top: 25px;
+}
+
+/* Add a subtle emphasis to the first paragraph */
+.about-content p:first-of-type {
+    font-size: 1.15rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .about-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .about-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+    }
+}
 /* Contact Page Header */
 .contact-header {
     background-image: url('https://umbralys.github.io/img/contact-bg.png');
