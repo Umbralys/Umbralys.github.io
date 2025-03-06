@@ -674,6 +674,114 @@ footer {
     font-size: 1.15rem;
 }
 
+/* Testimonials Section Styling */
+.testimonials {
+    background-color: #080808;
+    padding: 100px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial-card {
+    background-color: #111;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-content {
+    flex: 1;
+    position: relative;
+    padding-top: 15px;
+}
+
+.testimonial-content::before {
+    content: """;
+    font-size: 5rem;
+    position: absolute;
+    top: -30px;
+    left: -10px;
+    color: var(--primary-color);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-author div {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-author h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.testimonial-author p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Make cards equal height regardless of content length */
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-content {
+    flex-grow: 1;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .testimonials {
+        padding: 70px 0;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .testimonial-card {
+        padding: 25px 20px;
+    }
+    
+    .testimonial-content p {
+        font-size: 1rem;
+    }
+}
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .about-content h2 {
