@@ -916,6 +916,10 @@ footer {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.2rem;
 }
+/* Limit width of contact info paragraph */
+.contact-info p {
+    max-width: 60%;
+}
 
 /* Mobile optimization for both headers */
 @media screen and (max-width: 768px) {
@@ -1002,7 +1006,7 @@ footer {
 @media screen and (min-width: 969px) {
     .contact-form-container {
         max-width: 50%;
-        margin: 0 auto;
+        margin: 0; 
     }
 }
 /* Hover animation for inputs */
