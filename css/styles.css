@@ -916,10 +916,6 @@ footer {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.2rem;
 }
-/* Limit width of contact info paragraph */
-.contact-info p {
-    max-width: 60%;
-}
 
 /* Mobile optimization for both headers */
 @media screen and (max-width: 768px) {
