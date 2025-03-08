@@ -135,8 +135,6 @@ const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
         // Basic validation
         let isValid = true;
         const nameInput = contactForm.querySelector('#name');
@@ -150,36 +148,31 @@ if (contactForm) {
         
         // Validate name
         if (nameInput.value.trim() === '') {
+            e.preventDefault(); // Prevent form submission
             showError(nameInput, 'Name is required');
             isValid = false;
         }
         
         // Validate email
         if (emailInput.value.trim() === '') {
+            e.preventDefault(); // Prevent form submission
             showError(emailInput, 'Email is required');
             isValid = false;
         } else if (!isValidEmail(emailInput.value)) {
+            e.preventDefault(); // Prevent form submission
             showError(emailInput, 'Please enter a valid email');
             isValid = false;
         }
         
         // Validate message
         if (messageInput.value.trim() === '') {
+            e.preventDefault(); // Prevent form submission
             showError(messageInput, 'Message is required');
             isValid = false;
         }
         
-        // Submit form if valid
-        if (isValid) {
-            // In a real application, you would handle form submission here
-            // For demo purposes, show success message
-            contactForm.innerHTML = `
-                <div class="success-message">
-                    <h3>Thank you for your message!</h3>
-                    <p>I'll get back to you as soon as possible.</p>
-                </div>
-            `;
-        }
+        // If form is valid, it will submit to Formspree
+        // The preventDefault() calls above will stop submission only if validation fails
     });
 }
 
