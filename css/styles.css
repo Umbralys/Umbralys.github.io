@@ -1002,12 +1002,16 @@ footer {
     padding: 12px 30px;
 }
 
-/* Contact form width adjustment for desktop */
+/* Contact form width adjustment for desktop only */
 @media screen and (min-width: 969px) {
     .contact-form-container {
         max-width: 50%;
-        margin: 0; 
-        
+        margin: 0; /* Left-aligned on desktop */
+    }
+    
+    /* Limit width of contact info paragraph - desktop only */
+    .contact-info p {
+        max-width: 60%;
     }
 }
 /* Hover animation for inputs */
