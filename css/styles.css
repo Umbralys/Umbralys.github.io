@@ -1004,10 +1004,14 @@ footer {
         max-width: 50%;
         margin: 0; /* Left-aligned on desktop */
     }
+    /* This maintains the original form width to keep inputs the same size */
+    .contact-form {
+        max-width: 50%; /* Keep inputs at their original width */
+    }
     
     /* Limit width of contact info paragraph - desktop only */
     .contact-info p {
-        max-width: 60%;
+        max-width: 80%;
     }
 }
 /* Hover animation for inputs */
