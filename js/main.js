@@ -134,7 +134,9 @@ if (projectCards.length > 0) {
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent default submission
+        
         // Basic validation
         let isValid = true;
         const nameInput = contactForm.querySelector('#name');
@@ -148,31 +150,85 @@ if (contactForm) {
         
         // Validate name
         if (nameInput.value.trim() === '') {
-            e.preventDefault(); // Prevent form submission
             showError(nameInput, 'Name is required');
             isValid = false;
         }
         
         // Validate email
         if (emailInput.value.trim() === '') {
-            e.preventDefault(); // Prevent form submission
             showError(emailInput, 'Email is required');
             isValid = false;
         } else if (!isValidEmail(emailInput.value)) {
-            e.preventDefault(); // Prevent form submission
             showError(emailInput, 'Please enter a valid email');
             isValid = false;
         }
         
         // Validate message
         if (messageInput.value.trim() === '') {
-            e.preventDefault(); // Prevent form submission
             showError(messageInput, 'Message is required');
             isValid = false;
         }
         
-        // If form is valid, it will submit to Formspree
-        // The preventDefault() calls above will stop submission only if validation fails
+        // If form is valid, submit via fetch
+        if (isValid) {
+            // Show a loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    // Success - reset the form
+                    contactForm.reset();
+                    
+                    // Show success message
+                    const successDiv = document.createElement('div');
+                    successDiv.className = 'success-message';
+                    successDiv.innerHTML = '<h3>Thank you for your message!</h3><p>I\'ll get back to you as soon as possible.</p>';
+                    
+                    // Insert success message before the form
+                    contactForm.parentElement.insertBefore(successDiv, contactForm);
+                    
+                    // Hide the form
+                    contactForm.style.display = 'none';
+                    
+                    // Optionally, add a timeout to show the form again after a few seconds
+                    setTimeout(() => {
+                        successDiv.remove();
+                        contactForm.style.display = 'block';
+                    }, 5000);
+                } else {
+                    // Handle errors
+                    throw new Error(result.error || 'Form submission failed');
+                }
+            } catch (error) {
+                // Show error message
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'form-error-message';
+                errorDiv.innerText = 'There was a problem submitting your form. Please try again.';
+                contactForm.prepend(errorDiv);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000);
+            }
+            
+            // Reset button state
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
