@@ -1004,9 +1004,10 @@ footer {
         max-width: 50%;
         margin: 0; /* Left-aligned on desktop */
     }
-    /* This maintains the original form width to keep inputs the same size */
-    .contact-form {
-        max-width: 50%; /* Keep inputs at their original width */
+    /* Keep form inputs at original width */
+    .form-group input,
+    .form-group textarea {
+        max-width: 400px; 
     }
     
     /* Limit width of contact info paragraph - desktop only */
