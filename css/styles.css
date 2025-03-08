@@ -1,14 +1,18 @@
 /* Global Styles */
 :root {
-    --primary-color: #0066cc; /* Changed from purple (#6c63ff) to corporate blue */
+    --primary-color: #0066cc; /* Corporate blue */
     --secondary-color: #004d99; /* Darker shade of corporate blue */
-    --dark-color: #121212; /* Darkened for better contrast with black background */
+    --dark-color: #0c1420; /* Darkened blue-gray for better integration with gradient */
+    --darker-color: #080808; /* Darkest color in gradient */
+    --medium-dark-color: #0a0a12; /* Medium dark blue-gray */
+    --light-dark-color: #0a0f1a; /* Lighter dark blue-gray */
     --light-color: #f4f5f7;
-    --text-color: #e0e0e0; /* Lightened text for black background */
-    --text-light: #aaaaaa; /* Lightened secondary text for black background */
+    --text-color: #e0e0e0; /* Lightened text for dark background */
+    --text-light: #aaaaaa; /* Lightened secondary text for dark background */
     --border-radius: 8px;
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     --transition: all 0.3s ease;
+    --gradient-bg: linear-gradient(135deg, var(--darker-color) 0%, var(--medium-dark-color) 35%, var(--dark-color) 70%, var(--light-dark-color) 100%);
 }
 
 * {
@@ -21,7 +25,8 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #000; /* Changed from white to black */
+    background: var(--gradient-bg);
+    background-attachment: fixed;
 }
 
 a {
