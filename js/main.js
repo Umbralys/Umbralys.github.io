@@ -132,7 +132,6 @@ if (projectCards.length > 0) {
 
 // Form validation for contact page
 const contactForm = document.querySelector('.contact-form');
-
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevent default submission
@@ -141,6 +140,7 @@ if (contactForm) {
         let isValid = true;
         const nameInput = contactForm.querySelector('#name');
         const emailInput = contactForm.querySelector('#email');
+        const phoneInput = contactForm.querySelector('#phone');
         const messageInput = contactForm.querySelector('#message');
         
         // Clear previous error messages
@@ -163,9 +163,12 @@ if (contactForm) {
             isValid = false;
         }
         
-        // Validate message
-        if (messageInput.value.trim() === '') {
-            showError(messageInput, 'Message is required');
+        // Validate phone
+        if (phoneInput.value.trim() === '') {
+            showError(phoneInput, 'Phone number is required');
+            isValid = false;
+        } else if (!isValidPhone(phoneInput.value)) {
+            showError(phoneInput, 'Please enter a valid 10-digit phone number');
             isValid = false;
         }
         
