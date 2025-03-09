@@ -135,25 +135,25 @@ const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevent default submission
-
+        
         // Basic validation
         let isValid = true;
         const nameInput = contactForm.querySelector('#name');
         const emailInput = contactForm.querySelector('#email');
         const phoneInput = contactForm.querySelector('#phone');
         const messageInput = contactForm.querySelector('#message');
-
+        
         // Clear previous error messages
         document.querySelectorAll('.error-message').forEach(error => {
             error.remove();
         });
-
+        
         // Validate name
         if (nameInput.value.trim() === '') {
             showError(nameInput, 'Name is required');
             isValid = false;
         }
-
+        
         // Validate email
         if (emailInput.value.trim() === '') {
             showError(emailInput, 'Email is required');
@@ -162,16 +162,13 @@ if (contactForm) {
             showError(emailInput, 'Please enter a valid email');
             isValid = false;
         }
-
+        
         // Validate phone
         if (phoneInput.value.trim() === '') {
             showError(phoneInput, 'Phone number is required');
             isValid = false;
-        } else if (!isValidPhone(phoneInput.value)) {
-            showError(phoneInput, 'Please enter a valid 10-digit phone number');
-            isValid = false;
         }
-
+        
         // Validate message
         if (messageInput.value.trim() === '') {
             showError(messageInput, 'Message is required');
