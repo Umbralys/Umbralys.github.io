@@ -335,7 +335,6 @@ header {
     text-align: center;
 }
 
-/* The rest of the styles for other pages, largely untouched to maintain format */
 /* Footer (with minor tweaks for consistency) */
 footer {
     background-color: var(--dark-color);
@@ -368,21 +367,122 @@ footer {
     color: var(--text-light);
     font-size: 0.9rem;
 }
+
 /* Other pages (Projects, About, Contact) - basic styles to prevent breaking */
 .projects-header, .about-header, .contact-header {
     padding: 150px 0 80px;
     text-align: center;
     position: relative;
+    background-size: cover;
+    background-position: center;
 }
-.about-section, .contact-section {
+
+.about-header {
+    background-image: url('../img/about-bg.png');
+}
+
+.projects-header {
+     background-image: url('../img/projects-bg.png');
+}
+
+.contact-header {
+     background-image: url('../img/contact-bg.png');
+}
+
+.projects-header::before, .about-header::before, .contact-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.7); /* Dark overlay */
+    z-index: 1;
+}
+
+.projects-header .container, .about-header .container, .contact-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* === NEW STYLES FOR ABOUT PAGE === */
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
     padding: 100px 0;
 }
+
+.about-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.about-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.about-content h3 {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.about-content p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.personal-info {
+    margin-top: 30px;
+    background-color: var(--dark-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+}
+
+.personal-info .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--medium-dark-color);
+}
+.personal-info .info-item:last-child {
+    border-bottom: none;
+}
+
+.personal-info .info-item h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.personal-info .info-item p {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.about-buttons {
+    margin-top: 40px;
+}
+/* === END NEW STYLES === */
+
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .hero h1 { font-size: 2.8rem; }
     .hero h2 { font-size: 1.6rem; }
     .section-header h2 { font-size: 2.2rem; }
     .projects-grid { grid-template-columns: 1fr; }
+    .about-section { grid-template-columns: 1fr; }
+    .about-image { order: -1; margin-bottom: 40px;}
     .nav-links {
         display: none; /* Mobile nav JS will handle this */
     }
