@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links li');
 
     if (burger && nav) {
-        // Toggle navigation
-        burger.addEventListener('click', (e) => {
+        // Handle burger menu click/touch
+        function handleBurgerClick(e) {
+            e.preventDefault();
             e.stopPropagation(); // Prevents the 'document' click listener from immediately closing the menu
+            
             // Toggle nav
             nav.classList.toggle('nav-active');
 
@@ -23,13 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Burger animation
             burger.classList.toggle('toggle');
-        });
-    }
+        }
 
+        // Add both click and touch event listeners for better mobile support
+        burger.addEventListener('click', handleBurgerClick);
+        burger.addEventListener('touchstart', handleBurgerClick);
+    }
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (nav && nav.classList.contains('nav-active')) {
+        if (nav && nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
+            nav.classList.remove('nav-active');
+            burger.classList.remove('toggle');
+
+            navLinks.forEach((link) => {
+                link.style.animation = '';
+            });
+        }
+    });
+
+    // Close mobile menu when touching outside
+    document.addEventListener('touchstart', (e) => {
+        if (nav && nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
             nav.classList.remove('nav-active');
             burger.classList.remove('toggle');
 
@@ -85,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
 
     // Scroll to top button
     const scrollTopBtn = document.querySelector('.scroll-top');
